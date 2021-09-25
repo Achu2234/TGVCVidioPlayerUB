@@ -20,20 +20,20 @@
     "CHAT_ID": {
       "description": "ID of chat for debug",
       "required": true
-    }
-  },
-  "formation": {
-    "worker": {
-      "quantity": 1,
-      "size": "free"
-    }
-  },
-  "buildpacks": [
-    {
-      "url": "heroku/python"
+ }
     },
-    {
-      "url": "FFmpeg/FFmpeg"
-    }
-  ]
-}
+    "formation": {
+      "worker": {
+        "quantity": 1,
+        "size": "free"
+      }
+    },
+    "buildpacks": [
+      {
+        "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+      },
+      {
+        "url": "heroku/python"
+      }
+    ]
+  }
