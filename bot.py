@@ -80,3 +80,25 @@ async def start_stream(_, m, group_call):
         await send_log("Got YouTube link: " + query)
         try:
             meta = ytdl.extract_info(query, download=False)
+            formats = meta.get('formats', [meta])
+            for f in formats:
+                link = f['url']
+        except Exception as e:
+            await send_log(f"**YouTube Download Error!** \n\nError: `{e}`")
+            print(e)
+            return
+    await send_log(f"Got video link: {link}")
+    try:
+        if not group_call.is_connected:
+            await group_call.join(m.chat.id)
+        await group_call.start_video(link, with_audio=True, repeat=False, enable_experimental_lip_sync=True)
+        await send_log(f"starting {link}")
+    except Exception as e:
+        await send_log(f"**An Error Occoured!** \n\nError: `{e}`")
+        print(e)
+        return
+
+
+client.start()
+idle()
+client.stop()
