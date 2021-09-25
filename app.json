@@ -1,0 +1,39 @@
+{
+  "name": "TGVCVidioPlayerUB",
+  "description": "Telegram Userbot to steram youtube live or files in telegram vc by help of pytgcalls",
+  "repository": "https://github.com/Achu2234/TGVCVidioPlayerUB,
+  "logo": "https://telegra.ph/file/a334fb98f077f132715ea.jpg",
+  "keywords": ["python", "telegram", "bot", "video"],
+  "env": {
+    "API_ID": {
+      "description": "API_ID get it from my.telegram.org/apps",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "API_HASH get it from my.telegram.org/apps",
+      "required": true
+    },
+    "SESSION_STRING": {
+      "description": "Pyrogram Session String, get it from Repel",
+      "required": true
+    },
+    "CHAT_ID": {
+      "description": "Chat ID where you want steram vidio",
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "FFmpeg/FFmpeg"
+    }
+  ]
+}
