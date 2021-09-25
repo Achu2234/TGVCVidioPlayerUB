@@ -1,7 +1,7 @@
 {
   "name": "TGVCVidioPlayerUB",
   "description": "Telegram Userbot to steram youtube live or Youtube vido in telegram vc by help of pytgcalls",
-  "repository": "https://github.com/codehz/TelegramVoiceChatUserBot",
+  "repository": "https://github.com/Achu2234/TGVCVidioPlayerUBt",
   "logo": "https://telegra.ph/file/a334fb98f077f132715ea.jpg",
   "keywords": ["python", "telegram", "bot", "video"],
   "env": {
