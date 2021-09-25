@@ -1,7 +1,7 @@
 {
   "name": "TGVCVidioPlayerUB",
-  "description": "Telegram Userbot to steram youtube live or files in telegram vc by help of pytgcalls",
-  "repository": "https://github.com/Achu2234/TGVCVidioPlayerUB,
+  "description": "Telegram Userbot to steram youtube live or Youtube vido in telegram vc by help of pytgcalls",
+  "repository": "https://github.com/codehz/TelegramVoiceChatUserBot",
   "logo": "https://telegra.ph/file/a334fb98f077f132715ea.jpg",
   "keywords": ["python", "telegram", "bot", "video"],
   "env": {
@@ -14,11 +14,11 @@
       "required": true
     },
     "SESSION_STRING": {
-      "description": "Pyrogram Session String, get it from Repel",
+      "description": "Pyrogram Session String, get it from repel",
       "required": true
     },
     "CHAT_ID": {
-      "description": "Chat ID where you want steram vidio",
+      "description": "ID of chat for debug",
       "required": true
     }
   },
