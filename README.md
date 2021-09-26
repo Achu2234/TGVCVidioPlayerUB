@@ -24,9 +24,7 @@ Deploy Your Own Bot ♥️ **Star 🌟 Fork 🍴 & Deploy**
 
 ### 💜 Railway
 
-[![Deploy+on+Railway]
-
-(https://railway.app/button.svg(https://railway.app/new/templatetemplate=https://github.com/Achu2234/TGVCVidioPlayerUB&envs=API_ID,API_HASH,CHAT_ID,SESSION_NAME)
+[![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/Achu2234/TGVCVidioPlayerUB&envs=API_ID,API_HASH,CHAT_ID,SESSION_NAME)
 
 Get pyrogram (p)  `SESSION` from here:
 [![Run on Repl.it](https://repl.it/badge/github/SpEcHiDe/GenerateStringSession)](https://repl.it/@SpEcHiDe/GenerateStringSession)
