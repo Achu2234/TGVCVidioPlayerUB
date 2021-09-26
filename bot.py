@@ -15,11 +15,12 @@ ytdl = YoutubeDL({
     "geo_bypass": True,
     "nocheckcertificate": True,
 })
-print("UserBot Started Enjoy")
+print("login successfully")
 
 factory = GroupCallFactory(client)
 base_filter = filters.outgoing & ~filters.forwarded & ~filters.edited
 yt_regex = r"^(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"
+
 
 def with_group_call(func):
     async def wrapper(client, message):
@@ -42,7 +43,7 @@ def init_group_call(func):
 
 
 async def send_log(content):
-    await client.send_message(Config.LOG_ID , content, disable_notification=True, disable_web_page_preview=True)
+    await client.send_message(Config.LOG_ID, content, disable_notification=True, disable_web_page_preview=True)
 
 
 @client.on_message(filters.command("ps", "") & base_filter)
@@ -96,6 +97,7 @@ async def start_stream(_, m, group_call):
         await send_log(f"**An Error Occoured!** \n\nError: `{e}`")
         print(e)
         return
+
 
 client.start()
 idle()
