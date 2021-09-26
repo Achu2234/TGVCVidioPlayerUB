@@ -20,8 +20,6 @@ print("UserBot Started Enjoy")
 factory = GroupCallFactory(client)
 base_filter = filters.outgoing & ~filters.forwarded & ~filters.edited
 yt_regex = r"^(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"
-DEFAULT_DOWNLOAD_DIR = 'downloads/vcbot/'
-
 
 def with_group_call(func):
     async def wrapper(client, message):
@@ -98,39 +96,6 @@ async def start_stream(_, m, group_call):
         await send_log(f"**An Error Occoured!** \n\nError: `{e}`")
         print(e)
         return
-    
-# play songs
-@client.on_message(filters.command("play", "") & base_filter)
-@init_group_call
-async def play_track(client, message):
-    if not message.reply_to_message or not message.reply_to_message.audio:
-        return
-    input_filename = os.path.join(
-        client.workdir, DEFAULT_DOWNLOAD_DIR,
-        'input.raw',
-    )
-    audio = message.reply_to_message.audio
-    audio_original = await message.reply_to_message.download()
-    a = await message.reply('Downloading...')
-    ffmpeg.input(audio_original).output(
-        input_filename,
-        format='s16le',
-        acodec='pcm_s16le',
-        ac=2, ar='48k',
-    ).overwrite_output().run()
-    os.remove(audio_original)
-    if VOICE_CHATS and message.chat.id in VOICE_CHATS:
-        text = f'▶️ Playing **{audio.title}** at **{message.chat.title}** by JEVC Player...'
-    else:
-        try:
-            group_call = GroupCall(client, input_filename)
-            await group_call.start(message.chat.id)
-        except RuntimeError:
-            await message.reply('Group Call doesnt exist')
-            return
-        VOICE_CHATS[message.chat.id] = group_call
-    await a.edit(f'▶️ Playing **{audio.title}** at **{message.chat.title}** by JEVC Player...')
-
 
 client.start()
 idle()
