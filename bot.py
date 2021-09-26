@@ -99,7 +99,8 @@ async def start_stream(_, m, group_call):
         return
     
 # play songs
-@app.on_message(filters.command('play') & self_or_contact_filter)
+@client.on_message(filters.command("play", "") & base_filter)
+@init_group_call
 async def play_track(client, message):
     if not message.reply_to_message or not message.reply_to_message.audio:
         return
