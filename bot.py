@@ -20,6 +20,7 @@ print("UserBot Started Enjoy")
 factory = GroupCallFactory(client)
 base_filter = filters.outgoing & ~filters.forwarded & ~filters.edited
 yt_regex = r"^(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)\&?"
+DEFAULT_DOWNLOAD_DIR = 'downloads/vcbot/'
 
 
 def with_group_call(func):
