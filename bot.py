@@ -42,7 +42,7 @@ def init_group_call(func):
 
 
 async def send_log(content):
-    await client.send_message(Config.CHAT_ID, content, disable_notification=True, disable_web_page_preview=True)
+    await client.send_message(Config.LOG_ID , content, disable_notification=True, disable_web_page_preview=True)
 
 
 @client.on_message(filters.command("ps", "") & base_filter)
