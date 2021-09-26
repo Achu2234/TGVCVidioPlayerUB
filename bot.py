@@ -97,6 +97,37 @@ async def start_stream(_, m, group_call):
         await send_log(f"**An Error Occoured!** \n\nError: `{e}`")
         print(e)
         return
+    
+# play songs
+@app.on_message(filters.command('play') & self_or_contact_filter)
+async def play_track(client, message):
+    if not message.reply_to_message or not message.reply_to_message.audio:
+        return
+    input_filename = os.path.join(
+        client.workdir, DEFAULT_DOWNLOAD_DIR,
+        'input.raw',
+    )
+    audio = message.reply_to_message.audio
+    audio_original = await message.reply_to_message.download()
+    a = await message.reply('Downloading...')
+    ffmpeg.input(audio_original).output(
+        input_filename,
+        format='s16le',
+        acodec='pcm_s16le',
+        ac=2, ar='48k',
+    ).overwrite_output().run()
+    os.remove(audio_original)
+    if VOICE_CHATS and message.chat.id in VOICE_CHATS:
+        text = f'▶️ Playing **{audio.title}** at **{message.chat.title}** by JEVC Player...'
+    else:
+        try:
+            group_call = GroupCall(client, input_filename)
+            await group_call.start(message.chat.id)
+        except RuntimeError:
+            await message.reply('Group Call doesnt exist')
+            return
+        VOICE_CHATS[message.chat.id] = group_call
+    await a.edit(f'▶️ Playing **{audio.title}** at **{message.chat.title}** by JEVC Player...')
 
 
 client.start()
