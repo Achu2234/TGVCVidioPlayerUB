@@ -17,8 +17,8 @@
       "description": "Pyrogram Session String, get it from repel",
       "required": true
     },
-    "CHAT_ID": {
-      "description": "ID of chat for debug",
+    "LOG_ID": {
+      "description": "ID of chat for logs",
       "required": true
  }
     },
