@@ -30,14 +30,12 @@ Get pyrogram (p)  `SESSION` from here:
 [![Run on Repl.it](https://repl.it/badge/github/SpEcHiDe/GenerateStringSession)](https://repl.it/@SpEcHiDe/GenerateStringSession)
 
 
-# Devs
-
-- **Achu Biju**
 
 ## Credits
 
 - **[MarshalX](https://github.com/MarshalX) ~ [pytgcalls](https://github.com/MarshalX/tgcalls)**
 - **[Dan](https://github.com/delivrance) for [Pyrogram](https://github.com/pyrogram/pyrogram)**
+- **[Code Hz](https://github.com/codehz) for [TelegramVoiceChatUserBot](https://github.com/codehz/TelegramVoiceChatUserBot)**
 
 # Support 
 
