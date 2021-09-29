@@ -96,38 +96,7 @@ async def start_stream(_, m, group_call):
     except Exception as e:
         await send_log(f"**An Error Occoured!** \n\nError: `{e}`")
         print(e)
-        return
-    
-@client.on_message(filters.command("radio", "") & base_filter)
-async def radio_mirchi(e):
-    xx = await eor(e, get_string("com_1"))
-    if not len(e.text.split()) > 1:
-        return await eor(xx, "Are You Kidding Me?\nWhat to Play?")
-    input = e.text.split()
-    if input[1].startswith("-"):
-        chat = int(input[1])
-        song = e.text.split(maxsplit=2)[2]
-    elif input[1].startswith("@"):
-        cid = (await vcClient.get_entity(input[1])).id
-        chat = int(f"-100{cid}")
-        song = e.text.split(maxsplit=2)[2]
-    else:
-        song = e.text.split(maxsplit=1)[1]
-        chat = e.chat_id
-    if not is_url_ok(song):
-        return await eor(xx, f"`{song}`\n\nNot a playable link.🥱")
-    ultSongs = Player(chat, e)
-    if not ultSongs.group_call.is_connected:
-        if not (await ultSongs.vc_joiner()):
-            return
-    await ultSongs.group_call.start_audio(song)
-    await xx.reply(
-        f"• Started Radio 📻\n\n• Station : `{song}`",
-        file="https://telegra.ph/file/24e303c8dc0d5e50b3a53.jpg",
-    )
-    await xx.delete()
-
-
+        return  
 
 client.start()
 idle()
