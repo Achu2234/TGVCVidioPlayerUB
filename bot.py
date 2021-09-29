@@ -3,7 +3,6 @@ from config import Config, Database
 from pyrogram import Client, idle, filters
 from pytgcalls import GroupCallFactory
 from youtube_dl import YoutubeDL
-from . import *
 
 
 client = Client(
